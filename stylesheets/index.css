@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+}
+
+div {
+    /* By default, browsers would have set this as content-box */
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+a {
+    color: #51819f;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #51819f;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #51819f;
+    text-decoration: none;
+}
+
+a.caption {
+    color: #000000;
+    text-decoration: none;
+}
+
+.ui-datepicker {
+    font-size: 12px;
+}
+
+.invisible {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+}

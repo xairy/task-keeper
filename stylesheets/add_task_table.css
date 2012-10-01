@@ -1,0 +1,77 @@
+table.add_task {
+    background-color: #ffffff;
+    border: 0;
+    border-collapse: collapse;
+    font-size: 13px;
+    font-family: Verdana, Arial;
+    margin: 0 auto;
+    style: table-layout:fixed;
+    width: 920px;
+}
+
+.add_task th {
+    background-color: #E7F1F7;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: #ABABAB;
+    padding: 3px;
+}
+
+.add_task td {
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: #ABABAB;
+    padding: 3px;
+}
+
+.add_task td.control {
+    text-align: center;
+    width: 25px;
+}
+
+.add_task td.caption { }
+
+.add_task td.date {
+    text-align: center;
+    width: 90px;
+}
+
+form.add_task {
+    margin: 0;
+    padding: 0;
+}
+
+input.task_caption {
+    width: 100%;
+    font-size: 13px;
+    font-family: Verdana, Arial;
+}
+
+input.task_date {
+    width: 90px;
+    text-align: center;
+    font-size: 13px;
+    font-family: Verdana, Arial;
+}
+
+div.description {
+    border-width: 0px 1px 1px 1px;
+    border-style: solid;
+    border-color: #ABABAB;
+    width: 920px;
+    style: table-layout:fixed;
+    margin: 0 auto;
+    font-size: 13px;
+    font-family: Verdana, Arial;
+    padding: 3px;
+}
+
+textarea.description {
+    font-size: 13px;
+    font-family: Verdana, Arial;
+    padding: 0;
+    resize: none;
+    width: 100%;
+    /*margin-left: 2px;
+    margin-right: 2px;*/
+}

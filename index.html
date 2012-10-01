@@ -1,0 +1,99 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<html>
+    <head>
+        <title>Task Keeper - {{ user }}</title>
+        
+        <link type="text/css" href="jquery-ui/css/ui-lightness/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+        <script src="jquery-ui/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="jquery-ui/js/jquery-ui-1.8.17.custom.min.js" type="text/javascript"></script>
+        
+        <link rel="stylesheet" type="text/css" href="/stylesheets/top_panel.css" />
+        <link rel="stylesheet" type="text/css" href="/stylesheets/index.css" />
+        <link rel="stylesheet" type="text/css" href="/stylesheets/task_list_table.css" />
+        <link rel="stylesheet" type="text/css" href="/stylesheets/add_task_table.css" />
+        
+        <script src="/scripts/index.js" type="text/javascript"></script>
+        
+        <script type="text/javascript">
+            
+        </script>
+    </head>
+    
+    <body>
+        <table id="top_panel_strip">
+            <tr>
+                <td id="top_panel_left_section">
+                    <div><strong>{{ user }}</strong></div>
+                </td>
+
+                <!--
+                <td id="top_panel_1st_middle_section">
+                    <div>Nothing here</div>
+                </td>
+
+                <td id="top_panel_2nd_middle_section">
+                    <div><strong>You are viewing your task list</strong></div>
+                </td>
+                -->
+
+                <td id="top_panel_right_section">
+                    <div><a href="{{ logout_url }}">Logout</a></div>
+                </td>
+                
+            </tr>
+        </table>
+        
+        <br>
+        
+        
+        <table class="task">
+            <tr>
+                <th class="control"></th>
+                <th class="caption">Caption</th>
+                <th class="date">Date</th>
+            </tr>
+        </table>
+            
+        {% for task in tasks %}
+        <table class="task">
+            <tr>
+                <td class="control">
+                    <!--<span class="ui-icon ui-icon-circle-minus" onclick="window.location='/remove-task?id={{ task.key }}' "></span>-->
+                    <a href="/remove-task?id={{ task.key }}">[-]</a>
+                </td>
+                <td class="caption">
+                    <a class="caption" href="javascript:void(0);" onclick="SwitchVisibility({{ task.key.id }});">{{ task.caption|escape }}</a>
+                </td>
+                <td class="date">{{ task.date|date:"d.m.Y" }}</td>
+            </tr>
+        </table>
+        <div id="{{ task.key.id }}" class="hidden">
+            {{ task.description }}
+        </div>
+        {% endfor %}
+        
+        <br>
+        
+        <form action="/add-task" method="post" name="add_task_form" class="add_task">
+            <table class="add_task">
+                <tr>
+                    <td class="control">
+                        <!--<span class="ui-icon ui-icon-circle-plus" onclick="document.add_task_form.submit();"></span>-->
+                        <a onclick="document.add_task_form.submit();" href="#">[+]</a>
+                    </td>
+                    <td class="caption">
+                        <input name="caption" type="text" maxlength="128" autocomplete="off" class="task_caption" />
+                    </td>
+                    <td class="date">
+                        <input name="date" id="datepicker" type="text" maxlength="128" autocomplete="off" class="task_date" />
+                    </td>
+                </tr>
+            </table>
+            <div class="description">
+                <textarea name="description" rows="5" class="description"></textarea>
+            </div>
+            <input type="submit" class="invisible" />
+         </form>
+        <br>
+    </body>
+</html>
