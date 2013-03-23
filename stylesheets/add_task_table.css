@@ -42,12 +42,18 @@ form.add_task {
 }
 
 input.task_caption {
+    border-color: #ABABAB;
+    border-style: solid;
+    border-width: 2px;
     width: 100%;
     font-size: 13px;
     font-family: Verdana, Arial;
 }
 
 input.task_date {
+    border-color: #ABABAB;
+    border-style: solid;
+    border-width: 2px;
     width: 90px;
     text-align: center;
     font-size: 13px;
@@ -55,9 +61,9 @@ input.task_date {
 }
 
 div.description {
-    border-width: 0px 1px 1px 1px;
-    border-style: solid;
     border-color: #ABABAB;
+    border-style: solid;
+    border-width: 0px 1px 1px 1px;
     width: 920px;
     style: table-layout:fixed;
     margin: 0 auto;
@@ -67,6 +73,9 @@ div.description {
 }
 
 textarea.description {
+    border-color: #ABABAB;
+    border-style: solid;
+    border-width: 2px;
     font-size: 13px;
     font-family: Verdana, Arial;
     padding: 0;
