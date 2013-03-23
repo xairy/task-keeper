@@ -5,8 +5,8 @@ $(document).ready(function() {
  });
  
  function SwitchVisibility(id) {
-    if(document.getElementById) {
-        if(document.getElementById(id).style.display == 'block') {
+    if (document.getElementById) {
+        if (document.getElementById(id).style.display == 'block') {
             document.getElementById(id).style.display = 'none';
         } else {
             document.getElementById(id).style.display = 'block';

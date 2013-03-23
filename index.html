@@ -49,11 +49,11 @@
         <table class="task">
             <tr>
                 <th class="control"></th>
-                <th class="caption">Caption</th>
+                <th class="caption">Task</th>
                 <th class="date">Date</th>
             </tr>
         </table>
-            
+        
         {% for task in tasks %}
         <table class="task">
             <tr>
@@ -62,7 +62,7 @@
                     <a href="/remove-task?id={{ task.key }}">[-]</a>
                 </td>
                 <td class="caption">
-                    <a class="caption" href="javascript:void(0);" onclick="SwitchVisibility({{ task.key.id }});">{{ task.caption|escape }}</a>
+                    <a class="caption" href="javascript:void(0);" onclick="SwitchVisibility('{{ task.key.id }}');">{{ task.caption|escape }}</a>
                 </td>
                 <td class="date">{{ task.date|date:"d.m.Y" }}</td>
             </tr>

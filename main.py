@@ -10,13 +10,6 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
 
-# TODO: make it possible to edit entries.
-# TODO: add multiple tables.
-
-# POINT: think about focus.
-# POINT: think about ancestor conception in the datastore.
-# POINT: Missed (red), Today (orange), Tomorrow (green), Planned (green), Done (blue), Whenever-you-get-a-chance (grey)
-
 class Task(db.Model):
     author = db.UserProperty()
     caption = db.StringProperty(multiline = True)
