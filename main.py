@@ -4,9 +4,10 @@ import datetime
 import urllib
 import wsgiref.handlers
 
+import webapp2
+
 from google.appengine.ext import db
 from google.appengine.api import users
-from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
 
@@ -19,7 +20,7 @@ class Task(db.Model):
 def tasks_key(user_name):
     return db.Key.from_path('Tasks', user_name)
 
-class MainPage(webapp.RequestHandler):
+class MainPage(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         if not user:
@@ -39,7 +40,7 @@ class MainPage(webapp.RequestHandler):
             path = os.path.join(os.path.dirname(__file__), 'index.html')
             self.response.out.write(template.render(path, template_values))
 
-class AddTaskHandler(webapp.RequestHandler):
+class AddTaskHandler(webapp2.RequestHandler):
     def post(self):
         user = users.get_current_user()
         if not user:
@@ -59,7 +60,7 @@ class AddTaskHandler(webapp.RequestHandler):
 
             self.redirect('/')
         
-class RemoveTaskHandler(webapp.RequestHandler):
+class RemoveTaskHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         if not user:
@@ -73,7 +74,7 @@ class RemoveTaskHandler(webapp.RequestHandler):
 
             self.redirect('/')
 
-application = webapp.WSGIApplication([
+application = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/add-task', AddTaskHandler),
     ('/remove-task', RemoveTaskHandler),
