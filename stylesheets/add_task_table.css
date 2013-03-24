@@ -44,7 +44,7 @@ form.add_task {
 input.task_caption {
     border-color: #ABABAB;
     border-style: solid;
-    border-width: 2px;
+    border-width: 1px;
     width: 100%;
     font-size: 13px;
     font-family: Verdana, Arial;
@@ -53,7 +53,7 @@ input.task_caption {
 input.task_date {
     border-color: #ABABAB;
     border-style: solid;
-    border-width: 2px;
+    border-width: 1px;
     width: 90px;
     text-align: center;
     font-size: 13px;
@@ -75,7 +75,7 @@ div.description {
 textarea.description {
     border-color: #ABABAB;
     border-style: solid;
-    border-width: 2px;
+    border-width: 1px;
     font-size: 13px;
     font-family: Verdana, Arial;
     padding: 0;
