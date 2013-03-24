@@ -68,7 +68,7 @@
             </tr>
         </table>
         <div id="{{ task.key.id }}" class="hidden">
-            {{ task.description }}
+            {{ task.description|safe }}
         </div>
         {% endfor %}
         
