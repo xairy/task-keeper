@@ -1,3 +1,11 @@
+div.group_name {
+    position: relative;
+    margin-left: 0px;
+    font-size: 18px;
+    font-family: Verdana, Arial;
+    padding: 2px;
+}
+
 table.task {
     background-color: #ffffff;
     border: 0;
@@ -22,6 +30,13 @@ table.task {
     border-style: solid;
     border-color: #ABABAB;
     padding: 3px;
+}
+
+.task td.group {
+    border: 0;
+    font-size: 18px;
+    font-family: Verdana, Arial;
+    padding: 2px;
 }
 
 .task th.control {

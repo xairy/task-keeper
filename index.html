@@ -44,9 +44,14 @@
         </table>
         
         <br>
-        
-        
+
+        {% for group in groups %}
         <table class="task">
+            <tr>
+                <td class="group" colspan="3">
+                    {{ group.name }}
+                </td>
+            </tr>
             <tr>
                 <th class="control"></th>
                 <th class="caption">Task</th>
@@ -54,13 +59,16 @@
             </tr>
 
             {% for task in tasks %}
+            {% if task.group == group.name %}
             <tr>
                 <td class="control">
                     <!--<span class="ui-icon ui-icon-circle-minus" onclick="window.location='/remove-task?id={{ task.key() }}' "></span>-->
                     <a href="/remove-task?id={{ task.key() }}">[-]</a>
                 </td>
                 <td class="caption">
-                    <a class="caption" href="javascript:void(0);" onclick="SwitchVisibility('{{ task.key().id() }}');">{{ task.caption|safe }}</a>
+                    <a class="caption" href="javascript:void(0);" onclick="SwitchVisibility('{{ task.key().id() }}');">
+                        {{ task.caption|safe }}
+                    </a>
                 </td>
                 <td class="date">{{ task.date.strftime('%d.%m.%Y') }}</td>
             </tr>
@@ -69,10 +77,12 @@
                     {{ task.description|safe }}
                 </td>
             </tr>
+            {% endif %}
             {% endfor %}
         </table>
-        
+
         <br>
+        {% endfor %}
         
         <form action="/add-task" method="post" name="add_task_form" class="add_task">
             <table class="add_task">
@@ -96,6 +106,25 @@
             </table>
             <input type="submit" class="invisible" />
          </form>
+
+        <br>
+
+        <!--
+        <form action="/add-group" method="post" name="add_group_form" class="add_task">
+            <table class="add_task">
+                <tr>
+                    <td class="control">
+                        <a onclick="document.add_group_form.submit();" href="#">[+]</a>
+                    </td>
+                    <td class="caption">
+                        <input name="name" type="text" maxlength="128" autocomplete="off" class="task_caption" />
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" class="invisible" />
+         </form>
+        -->
+
         <br>
     </body>
 </html>

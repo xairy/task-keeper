@@ -16,6 +16,11 @@ indexes:
   - name: date
     direction: desc
 
+- kind: Group
+  ancestor: yes
+  properties:
+  - name: name
+
 - kind: Task
   ancestor: yes
   properties:
