@@ -82,11 +82,11 @@
 
         <br>
         
-        <form action="/add-task" method="post" name="add_task_form" class="add_task">
+        <form action="/add-task" method="post" name="add_task_form{{ group.key().id() }}" class="add_task">
             <table class="task">
                 <tr>
                     <td class="control">
-                        <a onclick="document.add_task_form.submit();" href="#">[+]</a>
+                        <a onclick="document.add_task_form{{ group.key().id() }}.submit();" href="#">[+]</a>
                     </td>
                     <td class="caption">
                         <input name="caption" type="text" maxlength="128" autocomplete="off" class="task_caption" />
