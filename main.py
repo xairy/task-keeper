@@ -1,8 +1,6 @@
 import os
 import cgi
 import datetime
-import urllib
-import wsgiref.handlers
 
 import webapp2
 import jinja2
