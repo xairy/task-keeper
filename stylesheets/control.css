@@ -1,0 +1,29 @@
+table.control {
+    background-color: #ffffff;
+    border: 0;
+    border-collapse: collapse;
+    font-size: 13px;
+    font-family: Verdana, Arial;
+    margin: 0 auto;
+    style: table-layout:fixed;
+    width: 920px;
+}
+
+.control th {
+    background-color: #E7F1F7;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ABABAB;
+    font-size: 13px;
+    font-family: Verdana, Arial;
+    padding: 3px;
+}
+
+.control td {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ABABAB;
+    font-size: 13px;
+    font-family: Verdana, Arial;
+    padding: 3px;
+}

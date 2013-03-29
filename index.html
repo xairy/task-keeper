@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="/stylesheets/top_panel.css" />
         <link rel="stylesheet" type="text/css" href="/stylesheets/index.css" />
         <link rel="stylesheet" type="text/css" href="/stylesheets/task_list_table.css" />
+        <link rel="stylesheet" type="text/css" href="/stylesheets/control.css" />
         
         <script src="/scripts/index.js" type="text/javascript"></script>
         
@@ -39,6 +40,23 @@
                     <div><a href="{{ logout_url }}">Logout</a></div>
                 </td>
                 
+            </tr>
+        </table>
+
+        <br>
+
+        <table class="control">
+            <tr>
+                <th>
+                    <a href="javascript:void(0);" onclick="$('.add_task').hide()">
+                        View
+                    </a>
+                </th>
+                <th>
+                    <a href="javascript:void(0);" onclick="$('.add_task').show()">
+                        Edit
+                    </a>
+                </th>
             </tr>
         </table>
         
@@ -103,9 +121,9 @@
             </table>
             <input type="hidden" name="group" value="{{ group.name }}">
             <input type="submit" class="invisible" />
+            <br>
          </form>
 
-        <br>
         {% endfor %}
 
         <br>
