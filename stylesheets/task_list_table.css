@@ -1,8 +1,8 @@
 div.group_name {
     position: relative;
-    margin-left: 0px;
     font-size: 18px;
     font-family: Verdana, Arial;
+    margin-left: 0px;
     padding: 2px;
 }
 
@@ -22,6 +22,8 @@ table.task {
     border-width: 1px;
     border-style: solid;
     border-color: #ABABAB;
+    font-size: 13px;
+    font-family: Verdana, Arial;
     padding: 3px;
 }
 
@@ -29,6 +31,8 @@ table.task {
     border-width: 1px;
     border-style: solid;
     border-color: #ABABAB;
+    font-size: 13px;
+    font-family: Verdana, Arial;
     padding: 3px;
 }
 
@@ -40,6 +44,7 @@ table.task {
 }
 
 .task th.control {
+    font-weight: normal;
     width: 25px;
 }
 
@@ -66,10 +71,50 @@ table.task {
 
 .task td.description {
     display: none;
-    font-size: 13px;
-    font-family: Verdana, Arial;
     margin: 0 auto;
     padding: 3px;
     style: table-layout:fixed;
     width: 920px;
+}
+
+.task td.editable_description {
+    margin: 0 auto;
+    padding: 3px;
+    style: table-layout:fixed;
+    width: 920px;
+}
+
+form.add_task {
+    margin: 0;
+    padding: 0;
+}
+
+input.task_caption {
+    border-color: #ABABAB;
+    border-style: solid;
+    border-width: 1px;
+    width: 100%;
+    font-size: 13px;
+    font-family: Verdana, Arial;
+}
+
+input.task_date {
+    border-color: #ABABAB;
+    border-style: solid;
+    border-width: 1px;
+    width: 90px;
+    text-align: center;
+    font-size: 13px;
+    font-family: Verdana, Arial;
+}
+
+textarea.description {
+    border-color: #ABABAB;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 13px;
+    font-family: Verdana, Arial;
+    padding: 0;
+    resize: none;
+    width: 100%;
 }

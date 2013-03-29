@@ -43,10 +43,6 @@ class MainPage(webapp2.RequestHandler):
                 group.owner = user
                 group.name = "General"
                 group.put()
-
-            for task in tasks:
-                task.group = "General"
-                task.put()
             
             logout_url = users.create_logout_url(self.request.uri)
 
@@ -77,7 +73,7 @@ class AddTaskHandler(webapp2.RequestHandler):
                 task.date = datetime.datetime.strptime(self.request.get('date'), '%d.%m.%Y').date()
             except ValueError:
                 task.date = datetime.datetime.today().date()
-            task.group = "General"
+            task.group = self.request.get('group')
 
             task.put()
 
@@ -112,9 +108,24 @@ class RemoveTaskHandler(webapp2.RequestHandler):
 
             self.redirect('/')
 
+class RemoveGroupHandler(webapp2.RequestHandler):
+    def get(self):
+        user = users.get_current_user()
+        if not user:
+            self.redirect(users.create_login_url(self.request.uri))
+        else:
+            user_name = user.email()
+            
+            if Group.all().ancestor(groups_key(user_name)).filter('owner =', user).count() > 0:
+                key = self.request.get('id')
+                task = db.delete(key)
+
+            self.redirect('/')
+
 application = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/add-task', AddTaskHandler),
     ('/add-group', AddGroupHandler),
     ('/remove-task', RemoveTaskHandler),
+    ('/remove-group', RemoveGroupHandler),
 ], debug = True)

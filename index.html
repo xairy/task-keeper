@@ -53,7 +53,7 @@
                 </td>
             </tr>
             <tr>
-                <th class="control"></th>
+                <th class="control"><a href="/remove-group?id={{ group.key() }}">[-]</a></th>
                 <th class="caption">Task</th>
                 <th class="date">Date</th>
             </tr>
@@ -62,7 +62,6 @@
             {% if task.group == group.name %}
             <tr>
                 <td class="control">
-                    <!--<span class="ui-icon ui-icon-circle-minus" onclick="window.location='/remove-task?id={{ task.key() }}' "></span>-->
                     <a href="/remove-task?id={{ task.key() }}">[-]</a>
                 </td>
                 <td class="caption">
@@ -82,13 +81,11 @@
         </table>
 
         <br>
-        {% endfor %}
         
         <form action="/add-task" method="post" name="add_task_form" class="add_task">
-            <table class="add_task">
+            <table class="task">
                 <tr>
                     <td class="control">
-                        <!--<span class="ui-icon ui-icon-circle-plus" onclick="document.add_task_form.submit();"></span>-->
                         <a onclick="document.add_task_form.submit();" href="#">[+]</a>
                     </td>
                     <td class="caption">
@@ -99,19 +96,27 @@
                     </td>
                 </tr>
               <tr>
-                  <td class="description" colspan="3">
+                  <td class="editable_description" colspan="3">
                       <textarea name="description" rows="5" class="description"></textarea>
                   </td>
               </tr>
             </table>
+            <input type="hidden" name="group" value="{{ group.name }}">
             <input type="submit" class="invisible" />
          </form>
 
         <br>
+        {% endfor %}
 
-        <!--
+        <br>
+
         <form action="/add-group" method="post" name="add_group_form" class="add_task">
-            <table class="add_task">
+            <table class="task">
+                <tr>
+                    <td class="group" colspan="2">
+                        Add group
+                    </td>
+                </tr>
                 <tr>
                     <td class="control">
                         <a onclick="document.add_group_form.submit();" href="#">[+]</a>
@@ -123,7 +128,6 @@
             </table>
             <input type="submit" class="invisible" />
          </form>
-        -->
 
         <br>
     </body>
