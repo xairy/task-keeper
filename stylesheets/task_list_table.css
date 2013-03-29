@@ -11,14 +11,14 @@ table.task {
 
 .task th {
     background-color: #E7F1F7;
-    border-width: 1px 1px 1px 1px;
+    border-width: 1px;
     border-style: solid;
     border-color: #ABABAB;
     padding: 3px;
 }
 
 .task td {
-    border-width: 0px 1px 1px 1px;
+    border-width: 1px;
     border-style: solid;
     border-color: #ABABAB;
     padding: 3px;
@@ -49,10 +49,7 @@ table.task {
     width: 90px;
 }
 
-div.hidden {
-    border-width: 0px 1px 1px 1px;
-    border-style: solid;
-    border-color: #ABABAB;
+.task td.description {
     display: none;
     font-size: 13px;
     font-family: Verdana, Arial;

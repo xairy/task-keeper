@@ -11,14 +11,14 @@ table.add_task {
 
 .add_task th {
     background-color: #E7F1F7;
-    border-width: 1px 1px 1px 1px;
+    border-width: 1px;
     border-style: solid;
     border-color: #ABABAB;
     padding: 3px;
 }
 
 .add_task td {
-    border-width: 1px 1px 1px 1px;
+    border-width: 1px;
     border-style: solid;
     border-color: #ABABAB;
     padding: 3px;
@@ -34,6 +34,15 @@ table.add_task {
 .add_task td.date {
     text-align: center;
     width: 90px;
+}
+
+.add_task td.description {    
+    style: table-layout:fixed;
+    margin: 0 auto;
+    font-size: 13px;
+    font-family: Verdana, Arial;
+    padding: 3px;
+    width: 920px;
 }
 
 form.add_task {
@@ -58,18 +67,6 @@ input.task_date {
     text-align: center;
     font-size: 13px;
     font-family: Verdana, Arial;
-}
-
-div.description {
-    border-color: #ABABAB;
-    border-style: solid;
-    border-width: 0px 1px 1px 1px;
-    width: 920px;
-    style: table-layout:fixed;
-    margin: 0 auto;
-    font-size: 13px;
-    font-family: Verdana, Arial;
-    padding: 3px;
 }
 
 textarea.description {

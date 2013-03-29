@@ -11,8 +11,8 @@ from google.appengine.api import users
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 class Task(db.Model):
-    author = db.UserProperty()
-    caption = db.StringProperty(multiline = True)
+    owner = db.UserProperty()
+    caption = db.StringProperty()
     description = db.TextProperty()
     date = db.DateProperty(auto_now_add = True)
 
@@ -47,8 +47,8 @@ class AddTaskHandler(webapp2.RequestHandler):
         else:
             user_name = user.email()
 
-            task = Task(parent = tasks_key(user_name))
-            task.author = user
+            task = Task(parent=tasks_key(user_name))
+            task.owner = user
             task.caption = cgi.escape(self.request.get('caption'))
             task.description = cgi.escape(self.request.get('description')).replace('\r\n', '<br>')
             try:

@@ -52,10 +52,8 @@
                 <th class="caption">Task</th>
                 <th class="date">Date</th>
             </tr>
-        </table>
-        
-        {% for task in tasks %}
-        <table class="task">
+
+            {% for task in tasks %}
             <tr>
                 <td class="control">
                     <!--<span class="ui-icon ui-icon-circle-minus" onclick="window.location='/remove-task?id={{ task.key() }}' "></span>-->
@@ -66,11 +64,13 @@
                 </td>
                 <td class="date">{{ task.date.strftime('%d.%m.%Y') }}</td>
             </tr>
+            <tr>
+                <td id="{{ task.key().id() }}" class="description" colspan="3">
+                    {{ task.description|safe }}
+                </td>
+            </tr>
+            {% endfor %}
         </table>
-        <div id="{{ task.key().id() }}" class="hidden">
-            {{ task.description|safe }}
-        </div>
-        {% endfor %}
         
         <br>
         
@@ -88,10 +88,12 @@
                         <input name="date" id="datepicker" type="text" maxlength="128" autocomplete="off" class="task_date" />
                     </td>
                 </tr>
+              <tr>
+                  <td class="description" colspan="3">
+                      <textarea name="description" rows="5" class="description"></textarea>
+                  </td>
+              </tr>
             </table>
-            <div class="description">
-                <textarea name="description" rows="5" class="description"></textarea>
-            </div>
             <input type="submit" class="invisible" />
          </form>
         <br>
