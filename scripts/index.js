@@ -1,7 +1,7 @@
 $(document).ready(function() {
-    $("#datepicker").datepicker();
-    $("#datepicker").datepicker("option", "dateFormat", "dd.mm.yy");
-    $("#datepicker").datepicker("option", "firstDay", 1);
+    $(".task_date").datepicker();
+    $(".task_date").datepicker("option", "dateFormat", "dd.mm.yy");
+    $(".task_date").datepicker("option", "firstDay", 1);
  });
  
  function SwitchVisibility(id) {
