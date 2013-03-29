@@ -58,16 +58,16 @@
         <table class="task">
             <tr>
                 <td class="control">
-                    <!--<span class="ui-icon ui-icon-circle-minus" onclick="window.location='/remove-task?id={{ task.key }}' "></span>-->
-                    <a href="/remove-task?id={{ task.key }}">[-]</a>
+                    <!--<span class="ui-icon ui-icon-circle-minus" onclick="window.location='/remove-task?id={{ task.key() }}' "></span>-->
+                    <a href="/remove-task?id={{ task.key() }}">[-]</a>
                 </td>
                 <td class="caption">
-                    <a class="caption" href="javascript:void(0);" onclick="SwitchVisibility('{{ task.key.id }}');">{{ task.caption|escape }}</a>
+                    <a class="caption" href="javascript:void(0);" onclick="SwitchVisibility('{{ task.key().id() }}');">{{ task.caption|safe }}</a>
                 </td>
-                <td class="date">{{ task.date|date:"d.m.Y" }}</td>
+                <td class="date">{{ task.date.strftime('%d.%m.%Y') }}</td>
             </tr>
         </table>
-        <div id="{{ task.key.id }}" class="hidden">
+        <div id="{{ task.key().id() }}" class="hidden">
             {{ task.description|safe }}
         </div>
         {% endfor %}

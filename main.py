@@ -5,11 +5,12 @@ import urllib
 import wsgiref.handlers
 
 import webapp2
+import jinja2
 
 from google.appengine.ext import db
 from google.appengine.api import users
-from google.appengine.ext.webapp.util import run_wsgi_app
-from google.appengine.ext.webapp import template
+
+jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 class Task(db.Model):
     author = db.UserProperty()
@@ -37,8 +38,8 @@ class MainPage(webapp2.RequestHandler):
                 'user': user_name,
             }
 
-            path = os.path.join(os.path.dirname(__file__), 'index.html')
-            self.response.out.write(template.render(path, template_values))
+            template = jinja_environment.get_template('index.html')
+            self.response.out.write(template.render(template_values))
 
 class AddTaskHandler(webapp2.RequestHandler):
     def post(self):
@@ -50,8 +51,8 @@ class AddTaskHandler(webapp2.RequestHandler):
 
             task = Task(parent = tasks_key(user_name))
             task.author = user
-            task.caption = self.request.get('caption')
-            task.description = self.request.get('description').replace('\r\n', '<br>')
+            task.caption = cgi.escape(self.request.get('caption'))
+            task.description = cgi.escape(self.request.get('description')).replace('\r\n', '<br>')
             try:
                 task.date = datetime.datetime.strptime(self.request.get('date'), '%d.%m.%Y').date()
             except ValueError:
@@ -78,10 +79,4 @@ application = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/add-task', AddTaskHandler),
     ('/remove-task', RemoveTaskHandler),
-], debug = True);
-
-def main():
-    run_wsgi_app(application)
-
-if __name__ == '__main__':
-    main()
+], debug = True)
