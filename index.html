@@ -2,23 +2,23 @@
 <html>
     <head>
         <title>Task Keeper - {{ user }}</title>
-        
+
         <link type="text/css" href="jquery-ui/css/ui-lightness/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
         <script src="jquery-ui/js/jquery-1.7.1.min.js" type="text/javascript"></script>
         <script src="jquery-ui/js/jquery-ui-1.8.17.custom.min.js" type="text/javascript"></script>
-        
+
         <link rel="stylesheet" type="text/css" href="/stylesheets/top_panel.css" />
         <link rel="stylesheet" type="text/css" href="/stylesheets/index.css" />
         <link rel="stylesheet" type="text/css" href="/stylesheets/task_list_table.css" />
         <link rel="stylesheet" type="text/css" href="/stylesheets/control.css" />
-        
+
         <script src="/scripts/index.js" type="text/javascript"></script>
-        
+
         <script type="text/javascript">
-            
+
         </script>
     </head>
-    
+
     <body>
         <table id="top_panel_strip">
             <tr>
@@ -39,7 +39,7 @@
                 <td id="top_panel_right_section">
                     <div><a href="{{ logout_url }}">Logout</a></div>
                 </td>
-                
+
             </tr>
         </table>
 
@@ -48,12 +48,12 @@
         <table class="control">
             <tr>
                 <th>
-                    <a href="javascript:void(0);" onclick="$('.add_task').hide()">
+                    <a href="javascript:void(0);" onclick="SwitchToViewMode();">
                         View
                     </a>
                 </th>
                 <th>
-                    <a href="javascript:void(0);" onclick="$('.add_task').show()">
+                    <a href="javascript:void(0);" onclick="SwitchToEditMode();">
                         Edit
                     </a>
                 </th>
@@ -82,14 +82,16 @@
                     <a href="/remove-task?id={{ task.key() }}">[-]</a>
                 </td>
                 <td class="caption">
-                    <a class="caption" href="javascript:void(0);" onclick="SwitchVisibility('{{ task.key().id() }}');">
+                    <a class="caption" href="javascript:void(0);" onclick="ToggleID('{{ task.key().id() }}');">
                         {{ task.caption|safe }}
                     </a>
                 </td>
-                <td class="date">{{ task.date.strftime('%d.%m.%Y') }}</td>
+                <td class="date">
+                  {{ task.date.strftime('%d.%m.%Y') }}
+                </td>
             </tr>
             <tr>
-                <td id="{{ task.key().id() }}" class="description" colspan="3">
+                <td id="{{ task.key().id() }}" class="hidden_description" colspan="3">
                     {{ task.description|safe }}
                 </td>
             </tr>
@@ -99,7 +101,7 @@
         </table>
 
         <br>
-        
+
         <form action="/add-task" method="post" name="add_task_form{{ group.key().id() }}" class="add_task">
             <table class="task">
                 <tr>
@@ -113,11 +115,11 @@
                         <input name="date" type="text" maxlength="128" autocomplete="off" class="task_date" />
                     </td>
                 </tr>
-              <tr>
-                  <td class="editable_description" colspan="3">
-                      <textarea name="description" rows="5" class="description"></textarea>
-                  </td>
-              </tr>
+                <tr>
+                    <td class="description" colspan="3">
+                        <textarea name="description" rows="5" class="task_description"></textarea>
+                    </td>
+                </tr>
             </table>
             <input type="hidden" name="group" value="{{ group.name }}">
             <input type="submit" class="invisible" />
@@ -131,11 +133,6 @@
         <form action="/add-group" method="post" name="add_group_form" class="add_task">
             <table class="task">
                 <tr>
-                    <td class="group" colspan="2">
-                        Add group
-                    </td>
-                </tr>
-                <tr>
                     <td class="control">
                         <a onclick="document.add_group_form.submit();" href="#">[+]</a>
                     </td>
@@ -147,6 +144,5 @@
             <input type="submit" class="invisible" />
          </form>
 
-        <br>
     </body>
 </html>

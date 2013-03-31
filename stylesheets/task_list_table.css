@@ -61,7 +61,7 @@ table.task {
     width: 90px;
 }
 
-.task td.description {
+.task td.hidden_description {
     display: none;
     margin: 0 auto;
     padding: 3px;
@@ -69,7 +69,7 @@ table.task {
     width: 920px;
 }
 
-.task td.editable_description {
+.task td.description {
     margin: 0 auto;
     padding: 3px;
     style: table-layout:fixed;
@@ -100,7 +100,7 @@ input.task_date {
     font-family: Verdana, Arial;
 }
 
-textarea.description {
+textarea.task_description {
     border-color: #ABABAB;
     border-style: solid;
     border-width: 1px;
