@@ -5,8 +5,8 @@ table.task {
     font-size: 13px;
     font-family: Verdana, Arial;
     margin: 0 auto;
-    style: table-layout:fixed;
-    width: 920px;
+    min-width: 920px;
+    max-width: 920px;
 }
 
 .task th {
@@ -31,12 +31,12 @@ table.task {
 .task td.group {
     border: 0;
     font-size: 18px;
-    font-family: Verdana, Arial;
     padding: 2px;
 }
 
 .task th.control {
     font-weight: normal;
+    min-width: 25px;
     width: 25px;
 }
 
@@ -46,33 +46,37 @@ table.task {
 
 .task th.date {
     text-align: center;
+    min-width: 90px;
     width: 90px;
 }
 
 .task td.control {
     text-align: center;
+    min-width: 25px;
     width: 25px;
 }
 
-.task td.caption { }
+.task td.caption {
+    overflow: hidden;
+    max-width: 783px; /* 920 - 25 - 90 - padding * 6 - border * 4 */
+}
 
 .task td.date {
     text-align: center;
+    min-width: 90px;
     width: 90px;
 }
 
 .task td.hidden_description {
     display: none;
     margin: 0 auto;
-    padding: 3px;
-    style: table-layout:fixed;
-    width: 920px;
+    overflow: hidden;
+    max-width: 912px; /* 920 - padding * 2 - border * 2 */
 }
 
 .task td.description {
     margin: 0 auto;
     padding: 3px;
-    style: table-layout:fixed;
     width: 920px;
 }
 

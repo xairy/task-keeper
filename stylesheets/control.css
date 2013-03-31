@@ -5,8 +5,7 @@ table.control {
     font-size: 13px;
     font-family: Verdana, Arial;
     margin: 0 auto;
-    style: table-layout:fixed;
-    width: 920px;
+    width: 920px;    
 }
 
 .control th {
