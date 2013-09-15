@@ -80,6 +80,12 @@ table.task {
     width: 920px;
 }
 
+.task td.show_add_task_form {
+    background-color: #E7F1F7;
+    cursor: pointer;
+    height: 10px;
+}
+
 form.add_task {
     margin: 0;
     padding: 0;

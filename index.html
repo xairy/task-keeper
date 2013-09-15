@@ -98,11 +98,15 @@
             {% endif %}
             {% endfor %}
 
+            <tr>
+                <td class="show_add_task_form" onclick="ToggleID('{{ group.key().id() }}');" colspan="3" />
+            </tr>
+
         </table>
 
         <br>
 
-        <form action="/add-task" method="post" name="add_task_form{{ group.key().id() }}" class="add_task">
+        <form action="/add-task" method="post" name="add_task_form{{ group.key().id() }}" class="add_task" id="{{ group.key().id() }}">
             <table class="task">
                 <tr>
                     <td class="control">
