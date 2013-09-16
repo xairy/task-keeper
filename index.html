@@ -26,37 +26,9 @@
                     <div><strong>{{ user }}</strong></div>
                 </td>
 
-                <!--
-                <td id="top_panel_1st_middle_section">
-                    <div>Nothing here</div>
-                </td>
-
-                <td id="top_panel_2nd_middle_section">
-                    <div><strong>You are viewing your task list</strong></div>
-                </td>
-                -->
-
                 <td id="top_panel_right_section">
                     <div><a href="{{ logout_url }}">Logout</a></div>
                 </td>
-
-            </tr>
-        </table>
-
-        <br>
-
-        <table class="control">
-            <tr>
-                <th>
-                    <a href="javascript:void(0);" onclick="SwitchToViewMode();">
-                        View
-                    </a>
-                </th>
-                <th>
-                    <a href="javascript:void(0);" onclick="SwitchToEditMode();">
-                        Edit
-                    </a>
-                </th>
             </tr>
         </table>
         
@@ -134,7 +106,7 @@
 
         <br>
 
-        <form action="/add-group" method="post" name="add_group_form" class="add_task">
+        <form action="/add-group" method="post" name="add_group_form" class="add_group">
             <table class="task">
                 <tr>
                     <td class="control">
